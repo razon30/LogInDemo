@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.media.Image;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -62,7 +63,7 @@ public class FaceBook_Demo extends AppCompatActivity {
         AccessTokenTracker accessTokenTracker;
         ProfileTracker profileTracker = null;
 
-        //logout = (Button) findViewById(R.id.logout);
+       // logout = (Button) findViewById(R.id.logout);
         login = (Button) findViewById(R.id.logIN);
         button = (LoginButton) findViewById(R.id.login_button);
         button.setReadPermissions("user_friends");
@@ -73,21 +74,26 @@ public class FaceBook_Demo extends AppCompatActivity {
         image_pp = (ImageView) findViewById(R.id.image_pp);
 
 
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginManager.getInstance().logOut();
-
-                tv_name.setText("no name");
-                image_pp.setBackgroundResource(R.mipmap.ic_launcher);
-                Intent intent = new Intent(FaceBook_Demo.this,FaceBook_Demo.class);
-                startActivity(intent);
-
-            }
-        });
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                LoginManager.getInstance().logOut();
+//
+//
+//                tv_name.setText("no name");
+//                image_pp.setBackgroundResource(R.mipmap.ic_launcher);
+//                Intent intent = new Intent(FaceBook_Demo.this,FaceBook_Demo.class);
+//                startActivity(intent);
+//
+//            }
+//        });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    getWindow().setNavigationBarColor(getResources().getColor(R.color.primary_material_dark));
+                    getWindow().setStatusBarColor(getResources().getColor(R.color.accent_material_dark));
+                }
 //                button.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
 //                    @Override
 //                    public void onSuccess(LoginResult loginResult) {
