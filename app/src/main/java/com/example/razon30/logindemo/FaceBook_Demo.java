@@ -94,6 +94,9 @@ public class FaceBook_Demo extends AppCompatActivity {
                     getWindow().setNavigationBarColor(getResources().getColor(R.color.primary_material_dark));
                     getWindow().setStatusBarColor(getResources().getColor(R.color.accent_material_dark));
                 }
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    getWindow().setNavigationBarColor(getResources().getColor(R.color.accent_material_light));
+                }
 //                button.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
 //                    @Override
 //                    public void onSuccess(LoginResult loginResult) {
